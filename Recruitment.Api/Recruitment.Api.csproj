@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<NoWarn>$(NoWarn);1591</NoWarn>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.*" />
+		<!-- Needed only for the "dotnet ef" command line tool -->
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.*">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Recruitment.Application\Recruitment.Application.csproj" />
+		<ProjectReference Include="..\Recruitment.Infrastructure\Recruitment.Infrastructure.csproj" />
+	</ItemGroup>
+</Project>

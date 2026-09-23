@@ -1,0 +1,39 @@
+@host = http://localhost:5080/api
+
+### 1. Create a job
+POST {{host}}/jobs
+Content-Type: application/json
+
+{ "title": "Junior .NET Developer", "description": "Build REST APIs" }
+
+### 2. Register a candidate
+POST {{host}}/candidates/register
+Content-Type: application/json
+
+{ "fullName": "Sara Ali", "email": "sara@mail.com", "phone": "0100000000" }
+
+### 3. Apply (paste the ids from steps 1 and 2)
+POST {{host}}/applications
+Content-Type: application/json
+
+{ "jobId": "PASTE-JOB-ID", "candidateId": "PASTE-CANDIDATE-ID" }
+
+### 4. Update status (Pending, Reviewed, Interview, Accepted, Rejected)
+PATCH {{host}}/applications/PASTE-APPLICATION-ID/status
+Content-Type: application/json
+
+{ "status": "Interview" }
+
+### 5. Cancel application
+POST {{host}}/applications/PASTE-APPLICATION-ID/cancel
+
+### 6. Close / Reopen job
+POST {{host}}/jobs/PASTE-JOB-ID/close
+###
+POST {{host}}/jobs/PASTE-JOB-ID/reopen
+
+### 7. Update candidate profile
+PUT {{host}}/candidates/PASTE-CANDIDATE-ID/profile
+Content-Type: application/json
+
+{ "fullName": "Sara A. Ali", "phone": "0111111111" }
